@@ -1615,7 +1615,8 @@ trans_diff <- R6Class(classname = "trans_diff",
 				if(is.nan(res1$p.value)){
 					res1$p.value <- 1
 				}
-				med <- tapply(d1[, 1], group, median) %>% as.data.frame
+				med <- tapply(d1[, 1], group, mean) %>% as.data.frame
+				#med <- tapply(d1[, 1], group, median) %>% as.data.frame
 				# if all values are same, use mean
 				if(length(unique(med[, 1])) == 1){
 					med <- tapply(d1[, 1], group, mean) %>% as.data.frame
